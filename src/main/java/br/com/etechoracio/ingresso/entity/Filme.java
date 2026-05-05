@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name="TBL_FILME")
-public class Filme implements CategoriaFilmeEnum{
+public class Filme{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_FILME")
