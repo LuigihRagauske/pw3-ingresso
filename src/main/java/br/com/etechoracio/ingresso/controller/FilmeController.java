@@ -1,6 +1,7 @@
 package br.com.etechoracio.ingresso.controller;
 
 import br.com.etechoracio.ingresso.entity.Filme;
+import br.com.etechoracio.ingresso.enums.SimNaoEnum;
 import br.com.etechoracio.ingresso.service.FilmeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,11 +15,16 @@ import java.util.List;
 public class FilmeController {
 
     @Autowired
-    private FilmeService filmeService;
+    private FilmeService service;
 
     @GetMapping
     public List<Filme> findAll(){
-        return filmeService.findAll();
+        return service.findAll();
+    };
+
+    @GetMapping("/em-cartaz")
+    public List<Filme>findEmCartaz(){
+        return service.findEmCartaz(SimNaoEnum.S);
     }
 
 }

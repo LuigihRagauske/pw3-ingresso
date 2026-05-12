@@ -1,6 +1,7 @@
 package br.com.etechoracio.ingresso.service;
 
 import br.com.etechoracio.ingresso.entity.Filme;
+import br.com.etechoracio.ingresso.enums.SimNaoEnum;
 import br.com.etechoracio.ingresso.repository.FilmeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,11 @@ public class FilmeService {
     private FilmeRepository filmeRepository;
 
     public List<Filme> findAll(){
+
         return filmeRepository.findAll();
+    };
+
+    public List<Filme>findEmCartaz(SimNaoEnum s){
+        return filmeRepository.findByEmCartaz(SimNaoEnum.S);
     }
 }
